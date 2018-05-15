@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
+import axios from "../../axios";
 import Post from "../../components/Post/Post";
 import FullPost from "../../components/FullPost/FullPost";
 import NewPost from "../../components/NewPost/NewPost";
@@ -35,7 +36,7 @@ class Blog extends Component {
   };
 
   render() {
-    let posts = <p style={{ textAlign: 'center' }}>Something went wrong!</p>;
+    let posts = <p style={{ textAlign: "center" }}>Something went wrong!</p>;
 
     if (!this.state.error) {
       posts = this.state.posts.map(post => {
