@@ -13,7 +13,6 @@ class FullPost extends Component {
                     <button className="Delete">Delete</button>
                 </div>
             </div>
-
         );
         return post;
     }
