@@ -7,27 +7,23 @@ class FullPost extends Component {
     loadedPost: null
   };
 
-  componentDidUpdate() {
-    if (this.props.id) {
+  componentDidMount() {
+    if (this.props.match.params.id) {
       if (
         !this.state.loadedPost ||
         (this.props.id && this.props.id !== this.state.loadedPost.id)
       ) {
-        axios
-          .get("/posts/" + this.props.id)
-          .then(res => {
-            this.setState({ loadedPost: res.data });
-          });
+        axios.get("/posts/" + this.props.match.params.id).then(res => {
+          this.setState({ loadedPost: res.data });
+        });
       }
     }
   }
 
   deletePostHandler = () => {
-    axios
-      .delete("/posts/" + this.props.id)
-      .then(res => {
-        console.log(res);
-      });
+    axios.delete("/posts/" + this.props.id).then(res => {
+      console.log(res);
+    });
   };
 
   render() {
